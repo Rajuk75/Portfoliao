@@ -210,14 +210,19 @@ header .navbar ul li a:hover {
 .home .image {
   flex: 1 1 40rem;
   z-index: 1;
+  border-radius: 50%;
 }
 .home .image img {
   width: 70%;
+  height: 70%; /* Ensures it's a square aspect ratio */
   margin-left: 6rem;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  object-fit: cover; /* This helps if the image isn't square */
   cursor: pointer;
 }
+
+
 .home .image img:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -344,124 +349,111 @@ header .navbar ul li a:hover {
 /* hero media queries ends*/
 /* hero section end */
 
+
+
 /* about section starts */
 .about {
-  background: rgb(255, 255, 255);
+  min-height: 100vh; /* Makes the section at least full screen */
+  /* background: url('../images/raju3.jpg') no-repeat center center; */
+  background-size: cover; /* Ensures the full section is covered */
+  background-color: #f5f5f5;
 }
+
 .about .row {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  flex-wrap: wrap;
+  display: flex; /* Use flexbox to arrange items */
+  flex-direction: row; /* Keeps items arranged horizontally */
+  gap: 2rem; /* Space between items */
   padding: 4rem;
+  align-items: center; /* Centers content vertically */
+  margin-top: 2rem; /* Adjusted margin-top for better spacing */
+
 }
-.about .row .image {
-  text-align: center;
-  flex: 1 1 35rem;
-}
-.about .row .image img {
-  margin: 4rem;
-  width: 30rem;
-  height: auto;
-  border-radius: 5%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
-  mix-blend-mode: luminosity;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.about .row .image img:hover {
-  mix-blend-mode: normal;
-}
+
 .about .row .content {
-  flex: 1 1 45rem;
-  padding: 3rem;
+  flex: 1; /* Allow content to take up available space */
+  padding: 2rem; /* Add padding */
+  text-align: left; /* Aligns text to the left */
+  max-width: 600px; /* Sets max width for text area */
 }
-.about .row .content h3 {
-  color: rgb(27, 27, 27);
-  font-size: 2.5rem;
+
+.about .row .content h2 {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #002057;
 }
+
+.about .row .content h2 span {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #ff7b00;
+}
+
 .about .row .content .tag {
-  font-size: 1.4rem;
-  color: #020133;
+  font-size: 2rem;
+  color: #2121eb;
   font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.about .row .content p {
+  font-size: 1.5rem; /* Increased font size for the paragraph */
+  margin-top: 1.5rem; /* Existing margin */
+  font-family: "Nunito", sans-serif; /* Specify font family */
+  font-weight: 600; /* Keep font weight */
+  line-height: 1.5; /* Add line height for better readability */
+  color: black;
+  text
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 1rem;
 }
-.about .row .content p {
-  font-size: 1.5rem;
-  margin-top: 1.5rem;
-  font-family: "Nunito";
-  font-weight: 600;
-  text-transform: none;
-}
-.about .row .content .box-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  font-family: "Nunito";
-  font-weight: 600;
-}
-.about .row .content .box-container .box p {
-  text-transform: none;
-}
+
 .about .row .content .box-container .box p span {
   color: #011aff;
 }
+
 .resumebtn {
-  margin-top: 6rem;
+  margin-top: 5rem; /* Maintain spacing */
 }
+
 .resumebtn .btn {
-  padding: 1.7rem 3rem;
-  border-radius: 0.5em;
-  transition: 0.3s;
-  color: #fff;
-  background: #2506ad;
-  box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6);
-  font-family: "Nunito", sans-serif;
+  padding: 1.7rem 3rem; /* Button padding */
+  border-radius: 0.5em; /* Rounded corners */
+  color: #fff; /* Text color */
+  background: #2506ad; /* Background color */
+  box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6); /* Shadow effect */
+  font-family: "Nunito", sans-serif; /* Specify font family */
+  transition: 0.3s; /* Transition effect for hover */
 }
-.resumebtn .btn span {
-  font-weight: 600;
-  font-size: 1.8rem;
-  letter-spacing: 0.1rem;
-}
-.resumebtn .btn i {
-  margin-left: 0.3rem;
-  font-size: 1.2rem;
-  transition: 0.3s;
-}
+
 .resumebtn .btn:hover {
-  background: #1a047e;
+  background: #1a047e; /* Darker background on hover */
 }
-.resumebtn .btn:hover i {
-  transform: translateX(5px);
-}
-/* about media queries starts*/
+
+/* about media queries starts */
 @media screen and (max-width: 600px) {
-  .about .row .image {
-    margin-top: 2rem;
-  }
-  .about .row .image img {
-    margin: 0 auto;
-    width: 80%;
-    mix-blend-mode: normal;
-  }
-  .about .row {
-    padding: 0.5rem;
-    margin-bottom: 7rem;
-  }
   .about .row .content {
-    padding: 1rem;
+    padding: 1rem; /* Adjust padding for smaller screens */
   }
-  .about .row .content .box-container {
-    gap: 0;
+
+  .about .row {
+    padding: 0.5rem; /* Adjust padding for smaller screens */
+    margin-bottom: 7rem; /* Maintain spacing */
   }
 }
-/* about media queries ends*/
+/* about media queries ends */
 /* about section ends */
+
 
 /* skills section starts */
 .skills {
   min-height: 90vh;
   background: linear-gradient(to bottom, #57059e, #4a00e0);
+  
+
 }
 .skills h2 {
   color: #fff;
@@ -532,112 +524,7 @@ header .navbar ul li a:hover {
 /* skills media queries ends*/
 /* skills section ends */
 
-/* education section starts */
-.education {
-  background: #e5ecfb;
-  min-height: 80vh;
-}
-.education .qoute {
-  font-size: 1.5rem;
-  text-align: center;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  margin-top: 0.5rem;
-}
-.education .box-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.education .box-container .box {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  border-radius: 0.5rem;
-  box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  text-align: center;
-  position: relative;
-  margin-top: 2rem;
-  overflow: hidden;
-  transition: 0.3s;
-  background: rgb(252, 252, 252);
-}
-.education .box-container .box:hover {
-  transform: scale(1.03);
-  box-shadow: 1rem 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
-}
-.education .box-container .box .image {
-  flex: 1 1 20rem;
-  width: 100%;
-}
-.education .box-container .box img {
-  object-fit: cover;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.education .box-container .box .content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  flex-wrap: wrap;
-  flex: 1 1 70rem;
-}
-.education .box-container .box .content h3 {
-  font-size: 2.5rem;
-  color: #012970;
-  padding: 0.5rem 0;
-  font-weight: 600;
-  text-align: left;
-  margin-left: 1rem;
-}
-.education .box-container .box .content p {
-  font-size: 1.5rem;
-  margin-left: 1rem;
-  text-align: left;
-}
-.education h4 {
-  font-size: 2rem;
-  color: rgb(34, 109, 0);
-  text-align: left;
-  margin: 1rem;
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
-}
 
-/* education media queries starts*/
-@media screen and (max-width: 600px) {
-  .education .box-container .box {
-    flex-direction: column;
-    width: 100%;
-  }
-  .education .box-container .box .image {
-    width: 100%;
-    height: 25rem;
-  }
-  .education .box-container .box img {
-    width: 100%;
-  }
-  .education .box-container .box .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    flex-wrap: wrap;
-    flex: 0;
-  }
-  .education .btns {
-    margin-top: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    flex-wrap: wrap;
-  }
-}
-/* education media queries ends*/
-/* education section ends */
 
 /* work section starts */
 .work {
@@ -930,10 +817,124 @@ header .navbar ul li a:hover {
 /* experience media queries ends */
 /* experience section ends */
 
+/* Base Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* education section starts */
+.education {
+  background: #1f56ce url('./assets/images/your-background-image.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  align-items: center;
+  justify-content: flex-start; /* Start from top */
+  padding: 2rem 0;
+}
+
+.education .heading span {
+  color: #ffffff; /* Set 'Education' word color to white */
+}
+
+
+.education h2 {
+  font-size: 2.5rem;
+  color: #dde0e6;
+  margin: 1rem 0;
+  text-align: center;
+}
+.education .qoute {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.education .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+}
+.education .box-container .box {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  margin-top: 2rem;
+  overflow: hidden;
+  transition: 0.3s;
+  background: rgb(252, 252, 252);
+  padding: 2rem;
+}
+.education .box-container .box:hover {
+  transform: scale(1.03);
+  box-shadow: 1rem 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
+}
+.education .box-container .box .image {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.education .box-container .box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.education .box-container .box .content {
+  text-align: center;
+  padding-top: 1rem;
+}
+.education .box-container .box .content h3 {
+  font-size: 2rem;
+  color: #012970;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  margin: 0;
+}
+.education .box-container .box .content p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+.education h4 {
+  font-size: 1.5rem;
+  color: rgb(34, 109, 0);
+  margin: 0.5rem 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+
 /* contact section starts */
 .contact {
-  background: #e5ecfb;
-  min-height: 60vh;
+  background: #e5ecfb url('./assets/images/your-background-image.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  align-items: center;
+  justify-content: flex-start; /* Start from top */
+  padding: 2rem 0;
+}
+.contact h2 {
+  font-size: 2.5rem;
+  color: #012970;
+  margin: 1rem 0;
+  text-align: center;
 }
 .contact .container {
   max-width: 1050px;
@@ -1065,27 +1066,7 @@ form .button-area {
 .button-area button:hover i {
   left: 8px;
 }
-/* contact section media queries starts */
-@media (max-width: 900px) {
-  .contact {
-    min-height: 70vh;
-  }
-  .contact .container {
-    margin: 3rem 0 2rem 0;
-  }
-  .contact .container .content {
-    padding: 18px 12px;
-  }
-  .contact .content .image-box {
-    display: none;
-  }
-  .contact .content form {
-    width: 100%;
-    margin-right: 2rem;
-  }
-}
-/* contact section media queries ends */
-/* contact section ends */
+
 
 /* footer section starts */
 .footer {
@@ -1222,4 +1203,78 @@ form .button-area {
 #scroll-top.active {
   top: calc(100% - 12rem);
 }
+
+
+
 /* scroll top ends */
+
+
+
+
+
+
+
+
+/* Project start from here
+
+/* Container for the project boxes */
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Styling each project box */
+.project-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+/* Hover effect for project box */
+.project-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Image styling */
+.project-image {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Content styling */
+.project-title {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Button styling */
+.project-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-btn {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.project-btn:hover {
+  background-color: #0056b3;
+}
